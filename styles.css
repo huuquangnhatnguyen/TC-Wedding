@@ -1,0 +1,229 @@
+html{
+    scroll-behavior: smooth !important;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+}
+*{
+    color:rgba(132,87,49,0.9);
+    padding: 0 auto;
+    
+}
+@font-face {
+    font-family: "Ballet";
+    src: url("./fonts/Ballet-Regular-VariableFont_opsz.ttf");
+}
+.font-cuong-dieu{
+    font-family: "Ballet", Times, serif;
+    font-weight: 800px;
+}
+@font-face {
+    font-family: "Playfair";
+    src: url("./fonts/PlayfairDisplay-VariableFont_wght.ttf");
+}
+    
+.font-don-gian{
+    font-family: "Playfair", Arial, sans-serif;
+    font-weight: 500px;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif !important;
+    padding: 0 !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    max-height: 10000px;
+    
+}
+
+body::-webkit-scrollbar {
+    display: none !important;
+}
+
+
+nav{
+    width: 100%;
+    background-color: rgba(238, 211, 189,0.7);
+    position: fixed;
+    bottom: 0px;
+    border-radius: 10px;
+    padding: 0px auto;
+    z-index: 1;
+}
+nav ul{
+    margin: 0 auto;
+    padding: 0px 10px;
+    list-style-type: none;
+    width: 100%;
+    align-items: center;
+    display: inline-flex;
+    z-index: 1;
+}
+nav ul li{
+    float:left;
+    width: 20%;
+    text-align: center;
+    padding: 0px 5px;
+    color: rgba(132,87,49,255);
+}
+
+
+.containers{
+    margin: 40px auto;
+    padding: 30px auto;
+    text-align: center;
+    position:relative;
+}
+
+.title{
+    margin: 20px auto;
+}
+
+#home{
+    top: 50px;
+}
+#home h1{
+    margin: 10px auto;
+}
+
+#home img{
+    margin: 20px auto;
+    border-radius: 10%;
+    max-width: 600px;
+    max-height: 600px   ;
+}
+
+#bridge-groom{
+    top: 50px;
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+.br-gr-table{
+    margin: 0 auto;
+}
+
+#bridge-groom #bridge-img{
+    border-radius: 10%;
+    max-width: 600px;
+    max-height: 600px;
+    margin: 20px 20px;
+}
+
+#bridge-groom .spacing{
+    margin: 50px 50px;
+}
+
+#bridge-groom #groom-img{
+    border-radius: 10%;
+    max-width: 600px;
+    max-height: 600px;
+    margin: 20px 20px;
+}
+
+#time{
+    position: relative;
+}
+
+#time .title{
+    padding: 20px auto;
+}
+
+#time-countdown{
+    font-size: 30px;
+}
+
+#photo-gallery{
+    position: relative;
+}
+
+#photo-gallery .title{
+    padding: 10px auto;
+}
+
+#photo-gallery .card-gallery{
+    max-width: 1000px;
+    max-height: 1000px;
+    border: rgba(132,87,49,.9) solid 2px;
+    border-radius: 10%;
+    margin: 0 auto;
+}
+
+#photo-gallery .card-photo{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    padding: 10px 10px;
+    border-radius: 10%;
+}
+
+
+#wishes .wish-form{
+    overflow-wrap: break-word !important;
+    border-radius: 15% !important;
+    padding: 1rem !important;
+    border: rgba(132,87,49,0.9) 1px solid;
+    color: rgba(132,87,49,0.9);
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1000px;
+    max-height: 2000px;
+}
+
+#wishes .wish-form .title{
+    font-size: 25px;
+}
+
+#wishes .wish-form .form-label{
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.form-items{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#wishes .wish-form button{
+    margin: 20px auto;
+    display: inline-block;
+    width: 90%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(132,87,49,0.9);
+    border: none;
+    background-color: rgba(238, 211, 189,0.7);
+
+}
+
+footer{
+    text-align: center;
+    bottom: 50px; 
+    padding-top: 20px;  
+    padding-bottom: 100px;
+}
+
+footer .title{
+    
+    font-size: 80px;
+}
+
+footer .ty-pic{
+    border-radius: 50%;
+    border: rgba(132,87,49,0.9) 3px solid;
+}
+
+footer .thankyou{
+    margin-top: 20px;
+    font-size: 25px;
+}
