@@ -73,6 +73,11 @@ h3{
     font-size: calc(60px / 1.5);
 }
 
+h6{
+    font-size: calc(30px / 1.5);
+    font-weight: 400;
+}
+
 @media(min-width: 300px){
     h1{
         font-size: calc(200px / 2.75);
@@ -83,6 +88,9 @@ h3{
     }
     h3{
         font-size: calc(60px / 2);
+    }
+    h6{
+        font-size: calc(40px / 2);
     }
 }
 
@@ -97,6 +105,9 @@ h3{
     h3{
         font-size: calc(60px / 1.25);
     }
+    h6{
+        font-size: calc(40px / 1.25);
+    }
 }
 
 @media(min-width: 1024px){
@@ -109,6 +120,9 @@ h3{
     }
     h3{
         font-size: calc(60px);
+    }
+    h6{
+        font-size: calc(40px);
     }
 }
 
@@ -159,7 +173,7 @@ nav{
     text-decoration: none;
     align-items: center;
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.5;
 }
 
@@ -182,7 +196,7 @@ nav{
 }
 
 
-
+/* Home Section*/
 .title{
     margin: 20px auto;
 }
@@ -213,7 +227,7 @@ nav{
     margin: 0 auto;
 }
 
-
+/* Bridge and Groom Section*/ 
 
 #bridge-groom #bridge-img{
     border-radius: 10%;
@@ -233,6 +247,8 @@ nav{
     margin: 20px auto;
 }
 
+/* Countdown Section */
+
 #time{
     position: relative;
 }
@@ -243,6 +259,17 @@ nav{
 
 #time-countdown{
     font-size: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#time-countdown .col{
+    display: grid;
+    gap: 10px;
+}
+
+#time-countdown .col h3{
+    margin: 0 auto;
 }
 
 .photo-gallery {
