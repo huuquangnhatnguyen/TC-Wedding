@@ -21,12 +21,7 @@ body{
     width: 100%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    /*max-width: 100vh;
-    max-height: 100vh;
-    background-size: cover;
-    margin: 0 auto !important;
-    padding: 0 auto !important;
-    scrollbar-width: none !important;*/
+    background-color: hsla(25, 20%, 92%);
 }
 
 /* Typography Styles*/ 
@@ -71,6 +66,7 @@ h1{
 h2{
     font-size: calc(150px / 1.5);
     font-weight: bold;
+    padding-top: calc(30px / 1.5);
 }
 
 h3{
@@ -82,7 +78,8 @@ h3{
         font-size: calc(200px / 2.75);
     }
     h2{
-        font-size: calc(150px / 2);
+        font-size: calc(150px / 2.25);
+        padding-top: calc(30px / 2);
     }
     h3{
         font-size: calc(60px / 2);
@@ -95,6 +92,7 @@ h3{
     }
     h2{
         font-size: calc(150px / 1.25);
+        padding-top: calc(30px / 1.5);
     }
     h3{
         font-size: calc(60px / 1.25);
@@ -107,6 +105,7 @@ h3{
     }
     h2{
         font-size: calc(150px);
+        padding-top: calc(30px / 1.25);
     }
     h3{
         font-size: calc(60px);
@@ -136,37 +135,51 @@ body::-webkit-scrollbar {
 }
 
 
-/*
-title{
-    font-weight: 200px;
-}*/
-
+/* Navigation bar */
 nav{
     width: 100%;
-    background-color: rgba(238, 211, 189,0.7);
+    background-color: rgba(238, 211, 189, 0.9);
     position: fixed;
     bottom: 0px;
     border-radius: 10px;
     padding: 0px auto;
     z-index: 1;
 }
-nav ul{
-    margin: 0 auto;
-    padding: 0px 10px;
-    list-style-type: none;
-    width: 100%;
-    align-items: center;
-    display: inline-flex;
-    z-index: 1;
-}
-nav ul li{
-    float:left;
-    width: 20%;
-    text-align: center;
-    padding: 0px 5px;
-    color: rgba(132,87,49,255);
+
+.nav-bar{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-around;
+    justify-items: space-around;
 }
 
+.nav-link{
+    color: black;
+    display: grid;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+@media (min-width: 300px) {
+    .nav-link{
+        font-size: calc(30px / 2);
+    }
+}
+
+@media (min-width: 720px) {
+    .nav-link{
+        font-size: calc(30px / 1.5);
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-link{
+        font-size: calc(30px / 1.25);
+    }
+}
 
 
 
@@ -232,6 +245,24 @@ nav ul li{
     font-size: 30px;
 }
 
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between; /* Distribute space between items */
+  }
+
+  /* Style for each gallery item (image) */
+  .gallery-item {
+    flex: 0 0 calc(33.33% - 10px); /* Set item width with some spacing */
+    margin-bottom: 10px; /* Add bottom margin for spacing */
+  }
+
+  img {
+    max-width: 100%; /* Make images responsive within their container */
+    height: auto;
+    display: block;
+  }
+
 #photo-gallery{
     position: relative;
 }
@@ -240,30 +271,6 @@ nav ul li{
     padding: 10px auto;
 }
 
-#photo-gallery .card-gallery{
-    width: calc(1000px / 1.5);
-    height: calc(1500px / 1.5);
-    border: rgba(132,87,49,.9) solid 2px;
-    border-radius: 10%;
-    margin: 0 auto;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
-
-#photo-gallery .card-photo{
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    padding: 10px auto;
-    border-radius: 10%;
-}
-
-@media(min-width: 300px){
-    .card-gallery{
-        width: calc(1000px / 2);
-        height: calc(1500px / 2);
-    }
-}
 
 
 #wishes .wish-form{
@@ -349,20 +356,3 @@ footer .thankyou{
     font-size: 25px;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: space-between; /* Distribute space between items */
-  }
-
-  /* Style for each gallery item (image) */
-  .gallery-item {
-    flex: 0 0 calc(33.33% - 10px); /* Set item width with some spacing */
-    margin-bottom: 10px; /* Add bottom margin for spacing */
-  }
-
-  img {
-    max-width: 100%; /* Make images responsive within their container */
-    height: auto;
-    display: block;
-  }

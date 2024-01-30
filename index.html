@@ -2,6 +2,7 @@
 <html lang="vi">
     <head>
         <!--COMMON TAGS-->
+        <title>TC Wedding</title>
         <meta charset="utf-8">
         <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,46 +10,21 @@
         <!--Styles-->
         <link rel="stylesheet" href="styles.css">
         <!-- Dependencies CSS -->
-        <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha256-MBffSnbbXwHCuZtgPYiwMQbfE7z+GOZ7fBPCNB06Z98=" crossorigin="anonymous"-->
+
         <!--App-->
         <script src="./scripts/app.js" defer></script>
     </head>
     <body>
         <header>
             <nav>
-                <ul>
-                    <li>
-                        <a class="nav-link" href="#home">
-                            <i class="fas fa-home"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Home</span>
+                <div class="nav-bar">
+                        <a class="nav-link font-don-gian" href="#home">Home</a>
                         </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#Bridge-Groom">
-                            <i class="fa-solid fa-user-group"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Cô dâu & Chú Rể</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#TimeLocation">
-                            <i class="fa-solid fa-calendar-check"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Thời gian & Địa điểm</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#Photos">
-                            <i class="fa-solid fa-images"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Photos Gallery</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#Wishes">
-                            <i class="fa-solid fa-comments"></i>
-                            <span class="d-block"  style="font-size: 0.7rem;">Gửi Lời Chúc</span>
-                        </a>
-                    </li>
-                </ul>
+                        <a class="nav-link font-don-gian" href="#bridge-groom">Cô dâu & Chú Rể</a>
+                        <a class="nav-link font-don-gian" href="#time">Thời gian & Địa điểm</a>
+                        <a class="nav-link font-don-gian" href="#photo-gallery">Photos Gallery</a>
+                        <a class="nav-link font-don-gian" href="#wishes">Gửi Lời Chúc</a>
+                </div>
             </nav>
         </header>
 
@@ -121,55 +97,64 @@
             <!--Photos Gallery-->
             <section class="containers" id="photo-gallery">
                 <h2 class="title font-cuong-dieu">Photo Gallery</h2>
-                <!--
-                <table class="card-gallery">
-                    <tr>
-                        <td><div class="card-photo">
-                            <img src="./images/pic2.jpg">
-                        </div></td>
-                        <td><div class="card-photo">
-                            <img src="./images/pic2.jpg">
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="card-photo">
-                            <img src="./images/pic2.jpg">
-                        </div></td>
-                        <td><div class="card-photo">
-                            <img src="./images/pic2.jpg">
-                        </div></td>
-                    </tr>
-                </table>
-                -->
-
-                <div class="gallery">
-                    <div class="gallery-item">
-                      <img src="./images/pic2.jpg" alt="Image 1">
+                <div class="photo-gallery">
+                    <div class="gallery-col">
+                        <div class="gallery-item">
+                            <img src="./images/pic2.jpg" alt="Image 1">
+                          </div>
+                          <div class="gallery-item">
+                            <img src="./images/pic3.jpg" alt="Image 2">
+                          </div>
+                          <div class="gallery-item">
+                              <img src="./images/pic4.jpg" alt="Image 2">
+                          </div>
                     </div>
-                    <div class="gallery-item">
-                      <img src="./images/pic3.jpg" alt="Image 2">
+                    <div class="gallery-col">
+                        <div class="gallery-item">
+                            <img src="./images/pic2.jpg" alt="Image 1">
+                          </div>
+                          <div class="gallery-item">
+                            <img src="./images/pic3.jpg" alt="Image 2">
+                          </div>
+                          <div class="gallery-item">
+                              <img src="./images/pic4.jpg" alt="Image 2">
+                          </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="./images/pic4.jpg" alt="Image 2">
+                    <div class="gallery-col">
+                        <div class="gallery-item">
+                            <img src="./images/pic2.jpg" alt="Image 1">
+                          </div>
+                          <div class="gallery-item">
+                            <img src="./images/pic3.jpg" alt="Image 2">
+                          </div>
+                          <div class="gallery-item">
+                              <img src="./images/pic4.jpg" alt="Image 2">
+                          </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="./images/pic2.jpg" alt="Image 1">
-                      </div>
-                      <div class="gallery-item">
-                        <img src="./images/pic3.jpg" alt="Image 2">
-                      </div>
-                      <div class="gallery-item">
-                          <img src="./images/pic4.jpg" alt="Image 2">
-                      </div>
-                      <div class="gallery-item">
-                        <img src="./images/pic2.jpg" alt="Image 1">
-                      </div>
-                      <div class="gallery-item">
-                        <img src="./images/pic3.jpg" alt="Image 2">
-                      </div>
-                      <div class="gallery-item">
-                          <img src="./images/pic4.jpg" alt="Image 2">
-                      </div>
+                    <div class="gallery-col">
+                        <div class="gallery-item">
+                            <img src="./images/pic2.jpg" alt="Image 1">
+                          </div>
+                          <div class="gallery-item">
+                            <img src="./images/pic3.jpg" alt="Image 2">
+                          </div>
+                          <div class="gallery-item">
+                              <img src="./images/pic4.jpg" alt="Image 2">
+                          </div>
+                    </div>
+                    <div class="gallery-col">
+                        <div class="gallery-item">
+                            <img src="./images/pic2.jpg" alt="Image 1">
+                          </div>
+                          <div class="gallery-item">
+                            <img src="./images/pic3.jpg" alt="Image 2">
+                          </div>
+                          <div class="gallery-item">
+                              <img src="./images/pic4.jpg" alt="Image 2">
+                          </div>
+                    </div>
+                    
+                    
                     <!-- Add more gallery items as needed -->
                   </div>
             </section>
