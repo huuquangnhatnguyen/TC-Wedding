@@ -173,26 +173,19 @@
                     <label class="form-label" for="form-name">Bạn tên là:</label>
                     <input type="text" class="form-input form-items" id="form-name" placeholder="Mình có thể gọi bạn/anh/chị là gì nhỉ?">
                   </div>
-                  <div class="friend-select">
-                    <label class="form-label" for="friend-of">Bạn/Anh/Chị là người quen của:</label>
-                    <select class="form-select form-items font-don-gian" id="friend-of">
-                        <option class="font-don-gian" value="0" selected>Cam hay Trân?</option>
-                        <option class="font-don-gian" value="1">Cam</option>
-                        <option class="font-don-gian" value="2">Trân</option>
-                    </select>
-                  </div>
                   <div class="wishes-input">
                     <label class="form-label" for="wishes">Lời Chúc</label>
-                    <textarea class="long-ans form-items" id="wishes" rows="4" placeholder="Nhắn gửi đôi lời hạnh phúc đến Cam và Trân"></textarea>
+                    <textarea class="long-ans form-items" id="form-message" rows="4" placeholder="Nhắn gửi đôi lời hạnh phúc đến Cam và Trân"></textarea>
                   </div>
 
-                <button id="send-btn" onclick="">
-                    <aside>Send</aside>
+                <button id="send-btn" onclick="submitMessage()">
+                    <aside>Gửi</aside>
                 </button>
                 </div>
                 
-                <div class="wish-form-ans">
-                    <!--Add more later-->
+                <div class="container">
+                    <div class="wishes-ans-box" id="wish-ans-container">
+                    </div>
                 </div>
             </section>  
         </main>
