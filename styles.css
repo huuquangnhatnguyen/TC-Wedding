@@ -381,8 +381,24 @@ textarea::placeholder{
 
 .grid-box{
     display: grid;
+    grid-template-columns: 1fr 20px;
+    align-items: start;
+}
+
+.wish-box{
+    display: grid;
     grid-template-rows: 1fr 3fr;
-    gap: 5px;
+    gap: 5px;   
+}
+
+.mes-remove-btn{
+    background-color: transparent;
+    border: none;
+    text-align: right;
+    font-size: 10px;
+    font-weight: 700;
+    margin-right: 5px;
+    line-height: 1.5;
 }
 
 /*Footer*/

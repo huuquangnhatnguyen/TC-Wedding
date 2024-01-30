@@ -41,7 +41,7 @@ function submitMessage() {
     // Create a new message element
     var messageElement = document.createElement('div');
     messageElement.className = 'wish-ans grid-box font-don-gian';
-    messageElement.innerHTML = '<div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>';
+    messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(this)">X</button>';
 
     // Append the message to the messages container
     var messagesContainer = document.getElementById('wish-ans-container');
@@ -58,44 +58,65 @@ function submitMessage() {
 
 function saveMessage(name, message) {
     // Load existing messages from local storage
-    var existingMessages = JSON.parse(localStorage.getItem('messages')) || [];
+    var existingMessages = JSON.parse(localStorage.getItem('wish-ans-container')) || [];
   
     // Add the new message
     existingMessages.push({ name: name, message: message });
   
     // Save the updated messages back to local storage
-    localStorage.setItem('messages', JSON.stringify(existingMessages));
+    localStorage.setItem('wishes', JSON.stringify(existingMessages));
   }
 
   function loadMessages() {
     // Load existing messages from local storage
-    var existingMessages = JSON.parse(localStorage.getItem('messages')) || [];
+    var existingMessages = JSON.parse(localStorage.getItem('wishes')) || [];
   
     // Display existing messages
     var messagesContainer = document.getElementById('wish-ans-container');
     existingMessages.forEach(function (msg) {
       var messageElement = document.createElement('div');
       messageElement.className = 'wish-ans grid-box font-don-gian';
-      messageElement.innerHTML = '<div class="guestname">' + msg.name + '</div>'+ '<div class="guest-message">' + msg.message + '</div>' + '<button onclick="deleteMessage(this)">X</button>';
+      messageElement.innerHTML = '<div class="wish-data">'+'<div class="guestname">' + msg.name + '</div>'+ '<div class="guest-message">' + msg.message + '</div>' + '</div>' + '<button class="mes-remove-btn" onclick="deleteMessage(this)">X</button>';
       messagesContainer.appendChild(messageElement);
     });
   }
 
+  const adminToken = "Solss1302"
+
   function deleteMessage(button) {
+    
+    var userToken = prompt('Enter your token:'); // Replace with a secure way to get the token from the authenticated user
+    if (userToken !== adminToken) {
+        alert('Unauthorized. You do not have permission to delete messages.');
+    return;
+  }
     // Get the parent element (message) of the clicked delete button
     var messageElement = button.parentNode;
+    console.log(messageElement.textContent.trim())
   
     // Load existing messages from local storage
-    var existingMessages = JSON.parse(localStorage.getItem('messages')) || [];
+    var existingMessages = JSON.parse(localStorage.getItem('wishes')) || [];
+    console.log('Existing:', existingMessages)
   
     // Find and remove the deleted message from the array
-    existingMessages = existingMessages.filter(function (msg) {
-      return msg.name + ': ' + msg.message !== messageElement.textContent.trim();
-    });
+    var indexToDelete = -1;
+    existingMessages.forEach(function (msg, index) {
+    if (msg.name + msg.message+'X' === messageElement.textContent.trim()) {
+      indexToDelete = index;
+    }
+  });
+
+  console.log('Index to Delete:', indexToDelete);
   
     // Save the updated messages back to local storage
-    localStorage.setItem('messages', JSON.stringify(existingMessages));
-  
+    if (indexToDelete !== -1) {
+        existingMessages.splice(indexToDelete, 1);
+    
+        // Save the updated messages back to local storage
+        localStorage.setItem('wishes', JSON.stringify(existingMessages));
+        console.log('After deleting:', existingMessages)
+      }
+
     // Remove the message from the DOM
     messageElement.remove();
   }
