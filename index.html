@@ -97,65 +97,30 @@
             <!--Photos Gallery-->
             <section class="containers" id="photo-gallery">
                 <h2 class="title font-cuong-dieu">Photo Gallery</h2>
-                <div class="photo-gallery">
-                    <div class="gallery-col">
-                        <div class="gallery-item">
-                            <img src="./images/pic2.jpg" alt="Image 1">
-                          </div>
-                          <div class="gallery-item">
-                            <img src="./images/pic3.jpg" alt="Image 2">
-                          </div>
-                          <div class="gallery-item">
-                              <img src="./images/pic4.jpg" alt="Image 2">
-                          </div>
+
+                <div class="photo-grid" id="defaultPhotos">
+                    <!-- Display a subset of photos by default -->
+                    <div class="photo-col">
+                        <div class="photo"><img src="./images/landscape/landscape_1.jpg" alt=""></div>
+                        <div class="photo"><img src="./images/landscape/landscape_15.jpg" alt=""></div>
                     </div>
-                    <div class="gallery-col">
-                        <div class="gallery-item">
-                            <img src="./images/pic2.jpg" alt="Image 1">
-                          </div>
-                          <div class="gallery-item">
-                            <img src="./images/pic3.jpg" alt="Image 2">
-                          </div>
-                          <div class="gallery-item">
-                              <img src="./images/pic4.jpg" alt="Image 2">
-                          </div>
+                    <div class="photo"><img src="./images/portrait/portrait_13.jpg" alt=""></div>
+                    <div class="photo"><img src="./images/portrait/portrait_25.jpg" alt=""></div>
+                    <div class="photo-col">
+                        <div class="photo"><img src="./images/landscape/landscape_1.jpg" alt=""></div>
+                        <div class="photo"><img src="./images/landscape/landscape_15.jpg" alt=""></div>
                     </div>
-                    <div class="gallery-col">
-                        <div class="gallery-item">
-                            <img src="./images/pic2.jpg" alt="Image 1">
-                          </div>
-                          <div class="gallery-item">
-                            <img src="./images/pic3.jpg" alt="Image 2">
-                          </div>
-                          <div class="gallery-item">
-                              <img src="./images/pic4.jpg" alt="Image 2">
-                          </div>
+                    <!-- Add more photos as needed -->
+                    <button onclick="showAllPhotos()">Xem thêm</button>
+                  </div>
+                  
+                  <!-- Modal -->
+                  <div class="modal" id="myModal">
+                    <button class="close-modal-btn" onclick="closeModal()">Close</button>
+                    <div class="modal-content" id="allPhotos">
+                      <!-- Display all photos in the modal -->
+                      <!-- Add more photos as needed -->
                     </div>
-                    <div class="gallery-col">
-                        <div class="gallery-item">
-                            <img src="./images/pic2.jpg" alt="Image 1">
-                          </div>
-                          <div class="gallery-item">
-                            <img src="./images/pic3.jpg" alt="Image 2">
-                          </div>
-                          <div class="gallery-item">
-                              <img src="./images/pic4.jpg" alt="Image 2">
-                          </div>
-                    </div>
-                    <div class="gallery-col">
-                        <div class="gallery-item">
-                            <img src="./images/pic2.jpg" alt="Image 1">
-                          </div>
-                          <div class="gallery-item">
-                            <img src="./images/pic3.jpg" alt="Image 2">
-                          </div>
-                          <div class="gallery-item">
-                              <img src="./images/pic4.jpg" alt="Image 2">
-                          </div>
-                    </div>
-                    
-                    
-                    <!-- Add more gallery items as needed -->
                   </div>
             </section>
 
