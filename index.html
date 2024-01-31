@@ -67,8 +67,8 @@
 
             <!--Time-->
             <section class="containers" id="time">
-                <h2 class="title font-cuong-dieu" >Thời gian & Địa điểm</h2>
-
+                <h2 class="title font-cuong-dieu" >Thời gian<br>Địa điểm</h2>
+                
                 <div id="time-countdown" data-time="2024-02-25T12:00:00">
                     <div class="col font-don-gian">
                         <h3 id="days"></h3><small>Ngày</small>
@@ -84,9 +84,9 @@
                     </div>
                 </div>
                 <div class="font-don-gian">
-                    <h6 style="line-height: 1.5; margin-top: 50px  ">Lễ Vu Quy sẽ được tổ chức vào ngày <Strong>Chủ Nhật, ngày 25.02.2024.</Strong></h6>
-                    <h6 style="line-height: 1.5">Bữa Tiệc chung vui cùng gia đình bắt đầu khai tiệc lúc <strong>12:00 trưa</strong> tại:</h6>
-                    <h2 class="font-cuong-dieu" style="line-height: 1.5; margin: 10px auto;">Asia Palace</h2>
+                    <h6>Lễ Vu Quy sẽ được tổ chức vào ngày <Strong>Chủ Nhật, ngày 25.02.2024.</Strong></h6>
+                    <h6>Bữa Tiệc chung vui cùng gia đình bắt đầu khai tiệc lúc <strong>12:00 trưa</strong> tại:</h6>
+                    <h3 class="font-cuong-dieu" style="line-height: 1.5; margin: 0px auto;">Asia Palace</h3>
                     <h4 styke>32 Phạm Ngũ Lão, Phú Hội, Thành Phố Huế, Tỉnh Thừa Thiên Huế</h4>
                 </div>
             </section>
@@ -107,16 +107,17 @@
                     <div class="photo"><img src="./images/portrait/portrait_13.jpg" alt=""></div>
                     <div class="photo"><img src="./images/portrait/portrait_25.jpg" alt=""></div>
                     <div class="photo-col">
-                        <div class="photo"><img src="./images/landscape/landscape_1.jpg" alt=""></div>
-                        <div class="photo"><img src="./images/landscape/landscape_15.jpg" alt=""></div>
+                        <div class="photo"><img src="./images/landscape/landscape_7.jpg" alt=""></div>
+                        <div class="photo"><img src="./images/landscape/landscape_10.jpg" alt=""></div>
                     </div>
                     <!-- Add more photos as needed -->
-                    <button onclick="showAllPhotos()">Xem thêm</button>
                   </div>
+
+                  <button class="see-more-btn" onclick="showAllPhotos()" style="grid-column: span 2; justify-self: center;">Xem thêm</button>
                   
                   <!-- Modal -->
                   <div class="modal" id="myModal">
-                    <button class="close-modal-btn" onclick="closeModal()">Close</button>
+                    <button class="close-modal-btn" onclick="closeModal()">X</button>
                     <div class="modal-content" id="allPhotos">
                       <!-- Display all photos in the modal -->
                       <!-- Add more photos as needed -->

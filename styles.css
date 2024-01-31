@@ -122,7 +122,7 @@ h6{
         font-size: calc(60px);
     }
     h6{
-        font-size: calc(40px);
+        font-size: calc(40px/1.25);
     }
 }
 
@@ -272,23 +272,111 @@ nav{
     margin: 0 auto;
 }
 
+/* photo gallery*/
+
 .photo-gallery {
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     justify-content: space-between; /* Distribute space between items */
   }
 
-  /* Style for each gallery item (image) */
-  .gallery-item {
-    flex: 0 0 calc(33.33% - 10px); /* Set item width with some spacing */
-    margin-bottom: 10px; /* Add bottom margin for spacing */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
   }
 
-  img {
-    max-width: 100%; /* Make images responsive within their container */
-    height: auto;
-    display: block;
+.photo-col{
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(150px,1fr));
+    gap: 5px;
+    align-items: center;
+}
+
+.see-more-btn{
+    margin: 10px auto; 
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(132,87,49,0.9);
+    border: none;
+    border-radius: 10px;
+    background-color: hsla(25, 35%, 72%, 0.7);  
   }
+
+.photo {
+    display: grid;
+    background-color: #B8A293;
+    align-self: center;
+}
+
+.photo img{
+    margin: 0 auto;
+    padding: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+  /* Styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: scroll;
+    z-index: 5;
+}
+.close-modal-btn{
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    padding: 5px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    box-shadow: none;
+    border: none;
+}
+  
+.modal-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 20px;
+ }
+
+  
+
+  
+/* Additional styling for the full-size photo in the modal */
+.full-size-photo-modal {
+    display: none;
+  }
+  
+  /* Additional styling for the full-size photo modal container */
+  .full-size-photo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Additional styling for the close button in the full-size photo modal */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
 
 #photo-gallery{
     position: relative;
@@ -358,6 +446,7 @@ textarea::placeholder{
     line-height: 1.5;
     color: rgba(132,87,49,0.9);
     border: none;
+    border-radius: 10px;
     background-color: rgba(238, 211, 189,0.7);
 
 }
@@ -371,6 +460,7 @@ textarea::placeholder{
     height: 300px;
     grid-template-rows: repeat(5, 1 fr);
     grid-auto-rows: 1fr;
+    overflow: scroll;
 }
 
 .wish-ans{
@@ -424,81 +514,10 @@ footer .thankyou{
     font-size: 25px;
 }
 
-
-
-
-
 /*testing*/
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
-  }
 
-.photo-col{
-    display: grid;
-    grid-template-rows: repeat(auto-fill, minmax(300px,1fr));
-    gap: 5px;
-    align-items: center;
-}
-  .photo {
-    background-color: #ddd;
-    padding: 10px;
-    text-align: center;
-  }
   
   /* Additional styling as needed */
   
-  /* Styles for the modal */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    overflow-y: scroll;
-    z-index: 5;
-  }
   
-  .modal-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    margin: 20px;
-  }
-
-  .close-modal-btn{
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-  }
-
-  
-/* Additional styling for the full-size photo in the modal */
-.full-size-photo-modal {
-    display: none;
-  }
-  
-  /* Additional styling for the full-size photo modal container */
-  .full-size-photo-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    z-index: 2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Additional styling for the close button in the full-size photo modal */
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-  }
