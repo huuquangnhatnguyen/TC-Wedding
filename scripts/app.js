@@ -123,7 +123,7 @@ function saveMessage(name, message) {
 
   function showAllPhotos() {
     var allPhotoGallery = document.getElementById('allPhotos')
-    for (let i = 1; i <= 44; i++) {
+    for (let i = 1; i <= 16; i++) {
         var newPhoto = document.createElement('div');
         newPhoto.className = 'photo';
         newPhoto.id = 'photo'+i;
@@ -131,7 +131,7 @@ function saveMessage(name, message) {
         allPhotoGallery.appendChild(newPhoto);
     }
 
-    for (let i = 1; i <= 16; i++) {
+    for (let i = 1; i <= 6; i++) {
         var newPhoto = document.createElement('div');
         newPhoto.className = 'photo';
         newPhoto.id = 'photo'+(i+22);
