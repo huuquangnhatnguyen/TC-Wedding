@@ -67,27 +67,89 @@
 
             <!--Time-->
             <section class="containers" id="time">
-                <h2 class="title font-cuong-dieu" >Thời gian<br>Địa điểm</h2>
+                <h2 class="title font-cuong-dieu" >Thời gian</h2>
                 
-                <div id="time-countdown" data-time="2024-02-25T12:00:00">
-                    <div class="col font-don-gian">
-                        <h3 id="days"></h3><small>Ngày</small>
-                    </div>
-                    <div class="col font-don-gian">
-                        <h3 id="hours"></h3><small>Giờ</small>
-                    </div>
-                    <div class="col font-don-gian">
-                        <h3 id="mins"></h3><small>Phút</small>
-                    </div>
-                    <div class="col font-don-gian">
-                        <h3 id="secs"></h3><small>Giây</small>
-                    </div>
-                </div>
                 <div class="font-don-gian">
                     <h6>Lễ Vu Quy sẽ được tổ chức vào ngày <Strong>Chủ Nhật, ngày 25.02.2024.</Strong></h6>
-                    <h6>Bữa Tiệc chung vui cùng gia đình bắt đầu khai tiệc lúc <strong>12:00 trưa</strong> tại:</h6>
-                    <h3 class="font-cuong-dieu" style="line-height: 1.5; margin: 0px auto;">Asia Palace</h3>
-                    <h4 styke>32 Phạm Ngũ Lão, Phú Hội, Thành Phố Huế, Tỉnh Thừa Thiên Huế</h4>
+                    <table class="calendar-container">
+                        <caption class="month-title">Tháng 2 / 2024</caption>
+                        <tbody>
+                            <tr>
+                                <th abbr="Mon">Thứ 2</th>
+                                <th abbr="Tue">Thứ 3</th>
+                                <th abbr="Wed">Thứ 4</th>
+                                <th abbr="Thu">Thứ 5</th>
+                                <th abbr="Fri">Thứ 6</th>
+                                <th abbr="Sat">Thứ 7</th>
+                                <th abbr="Sun">CN</th>
+                            </tr>             
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>20</td>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+                                <td><div id="today">25</div></td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td>27</td>
+                                <td>28</td>
+                                <td>29</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="time-countdown" data-time="2024-02-25T12:00:00">
+                        <div class="col font-don-gian">
+                            <h3 id="days"></h3><small>Ngày</small>
+                        </div>
+                        <div class="col font-don-gian">
+                            <h3 id="hours"></h3><small>Giờ</small>
+                        </div>
+                        <div class="col font-don-gian">
+                            <h3 id="mins"></h3><small>Phút</small>
+                        </div>
+                        <div class="col font-don-gian">
+                            <h3 id="secs"></h3><small>Giây</small>
+                        </div>
+                    </div>
+                    <h6>Tiệc Hồng chung vui cùng gia đình bắt đầu khai tiệc lúc <strong>12:00 trưa</strong> tại:</h6>
+                    <h2 class="font-cuong-dieu" style="line-height: 1.5; margin: 0px auto;">Asia Palace</h2>
+                    <div class="map-container">
+                        <iframe class="iframe-ggl" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15304.50373277896!2d107.594411!3d16.4691598!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a13cd76d33e9%3A0x743244f17ad46245!2zVHJ1bmcgVMOibSBT4buxIEtp4buHbiBBc2lhIFBhbGFjZQ!5e0!3m2!1svi!2s!4v1706667921474!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <h4>32 Phạm Ngũ Lão, Phú Hội, Thành Phố Huế, Tỉnh Thừa Thiên Huế</h4>
                 </div>
             </section>
 
@@ -166,9 +228,13 @@
             <p class="thankyou font-don-gian">
                 Chúng mình và gia đình cảm ơn các Bạn/ Anh/ Chị đã đến chung vui!
             </p>
-            <div>
-                <h5 class="font-don-gian" style="text-align: left; margin-bottom: 0px">Mừng Cưới</h5>
-                <img class="qr" src="./images/QR_bank.jpg" alt="">
+            <div class="happy-box">
+                <div class="title">
+                    <h4 class="font-don-gian" style="font-size: 14px">Hộp Mừng Cưới<br></h4>
+                    <!-- <h5>Thật vui vì được gặp và đón tiếp các bạn trong một dịp đặc biệt như đám cưới của chúng mình.</h5> -->
+                </div>
+                <div class="qr-code"><img class="qr" src="./images/QR_bank.jpg" alt=""></div>
+                
             </div>
         </div>
     </footer>

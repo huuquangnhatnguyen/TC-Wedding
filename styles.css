@@ -272,6 +272,95 @@ nav{
     margin: 0 auto;
 }
 
+.calendar-container{
+    display: grid;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.month-title{
+    font-size: calc(60px/1.5);
+    padding: 0.7rem;
+}
+
+th{
+    border-bottom: rgb(207,207,208) solid 1px;
+    border-top: rgb(207,207,208) solid 1px;
+    font-size: calc(30px/1.5);
+    padding: 0.6rem;
+
+}
+
+td{
+    font-size: calc(20px/1.5);
+    padding: 0.5rem;
+}
+
+
+@media (min-width: 300px) {
+    .month-title{
+        font-size: calc(60px/1.5);
+    }
+    
+    th{
+        font-size: calc(30px/2.5);
+    }
+    td{
+        font-size: calc(20px/2.5);
+    }
+}
+
+@media (min-width: 720px) {
+    .month-title{
+        font-size: calc(60px/1.5);
+    }
+    
+    th{
+        font-size: calc(30px/1.5);
+    }
+    td{
+        font-size: calc(20px/1.5);
+    }
+}
+
+@media (min-width: 1024px) {
+    .month-title{
+        font-size: calc(60px/1.25);
+    }
+    
+    th{
+        font-size: calc(30px/1.25);
+    }
+    td{
+        font-size: calc(20px/1.25);
+    }
+}
+#today{
+    background-color: #B8A293;
+    color: aliceblue;
+    border-radius: 60%;
+    padding: 0.2rem auto;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Aspect ratio for a 16:9 video (change as needed) */
+    overflow: hidden;
+    margin: auto;
+  }
+
+  /* Styling for the map iframe */
+  .iframe-ggl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
 /* photo gallery*/
 
 .photo-gallery {
@@ -349,7 +438,6 @@ nav{
     margin: 20px;
  }
 
-  
 
   
 /* Additional styling for the full-size photo in the modal */
@@ -519,5 +607,37 @@ footer .thankyou{
 
   
   /* Additional styling as needed */
-  
+.happy-box{
+    margin: 0 auto;
+    width: 150px;
+    height: 175px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: background-color 0.3s ease-in-out;
+    border:hsla(25, 35%, 72%, 0.7) dashed 1px;
+}
+
+.happy-box h4{
+    font-size: calc(30px / 2);
+}
+
+@media (min-width: 340px){
+    .happy-box h4{
+        font-size: calc(30px / 2);
+    }  
+}
+
+@media (min-width: 720px){
+    .happy-box h4{
+        font-size: calc(30px / 1.5);
+    }  
+}
+
+@media (min-width: 1024px){
+    .happy-box h4{
+        font-size: calc(30px    );
+    }  
+}
+.grid-container{
+    display: grid;
+}
   
