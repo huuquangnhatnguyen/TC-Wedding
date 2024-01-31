@@ -21,7 +21,7 @@ body{
     width: 100%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background-color: hsla(25, 20%, 92%);
+    background-color: whitesmoke;
 }
 
 /* Typography Styles*/ 
@@ -163,7 +163,8 @@ h6{
     position:relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
     transition: background-color 0.3s ease-in-out;
-    border:hsla(25, 35%, 72%, 0.7) dashed 1px;
+    border:hsla(25, 35%, 72%, 0.7) dashed 2px;
+    border-radius: 5px;
 }
 
 .divider {
@@ -508,7 +509,7 @@ td{
 
 #wishes .wish-form{
     overflow-wrap: break-word !important;
-    border-radius: 15% !important;
+    border-radius: 30px !important;
     padding: 1rem !important;
     border: rgba(132,87,49,0.9) 1px solid;
     color: rgba(132,87,49,0.9);
@@ -534,7 +535,7 @@ td{
     border: 1px solid #F2F3F5;
     border-radius: 3px;
     box-shadow: inset 1px 1px 3px 0 rgba(189,191,192,0.10);
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px;
     width: 90%;
     font-size: 1rem;
