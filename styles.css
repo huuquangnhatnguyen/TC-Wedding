@@ -621,6 +621,15 @@ textarea::placeholder{
     line-height: 1.5;
 }
 
+.alert{
+    width: 80%;
+    background-color:rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 /*Footer*/
 
 footer{
@@ -636,7 +645,7 @@ footer .ty-pic{
     max-width: 90%;
     margin: 0 auto;
     height: auto;
-    
+    display: none;
 }
 
 footer .thankyou{

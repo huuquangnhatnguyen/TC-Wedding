@@ -67,6 +67,9 @@ document.getElementById('messageForm').addEventListener('submit', function (even
     document.getElementById('form-name').value = '';
     document.getElementById('RSVP').value = '';
     document.getElementById('form-message').value = 'CÓ'; // Reset the select to 'Yes'
+
+    // sent noti
+    document.querySelector('.alert').style.display = 'block';
   }
 });
 
