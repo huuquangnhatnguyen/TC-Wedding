@@ -46,12 +46,10 @@ const firebaseConfig = {
   measurementId: "G-9Z7P0QKX2Z"
 };
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the database
-var database = firebase.database();
+var database = firebase.database().ref('wishes');
 
 // Event listener for submission
 document.getElementById('messageForm').addEventListener('submit', function (event) {
@@ -74,7 +72,7 @@ document.getElementById('messageForm').addEventListener('submit', function (even
 
 // Function to add a new message to Firebase
 function addMessageToFirebase(name, message, yesNoValue) {
-  database.ref('wishes').push({
+  database.push({
     name: name,
     message: message,
     yesNoValue: yesNoValue
@@ -83,7 +81,7 @@ function addMessageToFirebase(name, message, yesNoValue) {
 
 // Fetch Message from Database
 function fetchMessages() {
-  database.ref('wishes').on('value', function (snapshot) {
+  databases.on('value', function (snapshot) {
     var messagesContainer = document.getElementById('wishes-ans-box');
     messagesContainer.innerHTML = ''; // Clear the existing messages
     // Display existing messages
