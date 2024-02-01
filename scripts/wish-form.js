@@ -1,32 +1,3 @@
-var element = document.getElementById('time-countdown');
-var dataTime = element.getAttribute('data-time');
-let countDownDate = (new Date(dataTime)).getTime();
-console.log(countDownDate);
-// Update the countdown every second
-const countdownInterval = setInterval(timer, 1000);
-
-function timer () {
-        const currentDate = (new Date()).getTime();
-        let timeRemaining = Math.abs(countDownDate - currentDate);
-
-        let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        document.getElementById('days').innerHTML = `${days} `;
-
-        let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById('hours').innerHTML = `${hours}`;
-        
-        let mins = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById('mins').innerHTML = `${mins}`;
-
-        let secs = Math.floor((timeRemaining % (1000 * 60)) / 1000)
-        document.getElementById('secs').innerHTML = `${secs}`;
-
-        if (timeRemaining <= 0) {
-            clearInterval(countdownInterval);
-            document.getElementById('countdown').innerHTML = 'Countdown expired!';
-        }
-};
-
 
 // Firebase Set up:
 // Import the functions you need from the SDKs you need
@@ -46,10 +17,16 @@ const firebaseConfig = {
   measurementId: "G-9Z7P0QKX2Z"
 };
 // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
+
+
+
 // Get a reference to the database
-var database = firebase.database().ref('wishes');
+var database = firebase.database();
 
 // Event listener for submission
 document.getElementById('messageForm').addEventListener('submit', function (event) {
@@ -67,15 +44,12 @@ document.getElementById('messageForm').addEventListener('submit', function (even
     document.getElementById('form-name').value = '';
     document.getElementById('RSVP').value = '';
     document.getElementById('form-message').value = 'CÓ'; // Reset the select to 'Yes'
-
-    // sent noti
-    document.querySelector('.alert').style.display = 'block';
   }
 });
 
 // Function to add a new message to Firebase
 function addMessageToFirebase(name, message, yesNoValue) {
-  database.push({
+  database.ref('wishes').push({
     name: name,
     message: message,
     yesNoValue: yesNoValue
@@ -84,9 +58,10 @@ function addMessageToFirebase(name, message, yesNoValue) {
 
 // Fetch Message from Database
 function fetchMessages() {
-  databases.on('value', function (snapshot) {
+  database.ref('wishes').on('value', function (snapshot) {
     var messagesContainer = document.getElementById('wishes-ans-box');
     messagesContainer.innerHTML = ''; // Clear the existing messages
+
     // Display existing messages
     snapshot.forEach(function (childSnapshot) {
       var messageData = childSnapshot.val();
@@ -102,8 +77,7 @@ function createMessageElement(name, message, yesNoValue, messageId) {
   
   var messageElement = document.createElement('div');
   messageElement.className = 'wish-ans grid-box font-don-gian';
-  messageElement.innerHTML = 
-  '<div>'+'<div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(\'' + messageId + '\')">X</button>';
+  messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(\'' + messageId + '\')">X</button>';
 
   return messageElement;
 }
@@ -120,34 +94,7 @@ function deleteMessage(messageId) {
 
 fetchMessages();
 
-  function showAllPhotos() {
-    var allPhotoGallery = document.getElementById('allPhotos')
-    for (let i = 1; i <= 16; i++) {
-        var newPhoto = document.createElement('div');
-        newPhoto.className = 'photo';
-        newPhoto.id = 'photo'+i;
-        newPhoto.innerHTML = '<img src="./images/portrait/portrait_'+i+'.jpg" alt=""></img>';
-        allPhotoGallery.appendChild(newPhoto);
-    }
 
-    for (let i = 1; i <= 6; i++) {
-        var newPhoto = document.createElement('div');
-        newPhoto.className = 'photo';
-        newPhoto.id = 'photo'+(i+22);
-        newPhoto.innerHTML = '<img src="./images/landscape/landscape_'+i+'.jpg" alt=""></img>';
-        allPhotoGallery.appendChild(newPhoto);
-    }
-
-    // Display the modal
-    document.getElementById('myModal').style.display = 'block';
-
-  }
-  
-  function closeModal() {
-    // Close the modal
-    document.getElementById('myModal').style.display = 'none';
-  }
   
 
 console.log('run without bug')
-
