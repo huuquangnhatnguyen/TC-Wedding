@@ -681,3 +681,105 @@ footer .thankyou{
     height: auto;
 }
   
+
+.animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animate.animate--infinite {
+  animation-iteration-count: infinite;
+}
+
+.animate.animate--delay-1s {
+    animation-delay: 1s;
+  }
+
+.animate.animate--delay-2s {
+  animation-delay: 2s;
+}
+
+.animate.animate--delay-3s {
+    animation-delay: 3s;
+  }
+
+.animate.animate--delay-4s {
+animation-delay: 4s;
+}
+
+.animate.animate--delay-7s {
+    animation-delay: 7s;
+    }
+
+.animate.animate--delay-10s {
+    animation-delay: 10s;
+}
+
+.animate.animate--delay-11s {
+    animation-delay: 11s;
+}
+.animate.animate--delay-12s {
+    animation-delay: 12s;
+}
+.animate.animate--delay-13s {
+    animation-delay: 13s;
+}
+.animate.animate--delay-14s {
+    animation-delay: 14s;
+}
+.animate.animate--delay-15s {
+    animation-delay: 15s;
+}
+
+.animate.animate--fast {
+  animation-duration: 0.6s;
+}
+
+.animate.animate--slow {
+  animation-duration: 3s;
+}
+
+.animate.animate--delay-1s{
+    animation-timeline: ;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  0%{
+    transform: translateX(-300px);
+  }
+
+  100%{
+    transform: translateX(0);
+  }
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+  animation-timing-function: ease-in;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(300px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slideInRight {
+    animation-name: slideInRight;
+    animation-timing-function: ease-in;
+}
+
+@keyframes fadeIn{
+    0%{ opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.fadeIn{
+    animation-name: fadeIn;
+    animation-timing-function: ease-in;
+}

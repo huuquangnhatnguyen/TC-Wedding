@@ -102,10 +102,22 @@ function createMessageElement(name, message, yesNoValue, messageId) {
   
   var messageElement = document.createElement('div');
   messageElement.className = 'wish-ans grid-box font-don-gian';
-  messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(this)">X</button>';
+  messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(\'' + messageId + '\')">X</button>';
 
   return messageElement;
 }
+
+function deleteMessage(messageId) {
+  database.ref('messages/' + messageId).remove(); // Remove from the database
+
+  // Remove the corresponding DOM element
+  var messageElement = document.getElementById(messageId);
+  if (messageElement) {
+    messageElement.remove();
+  }
+}
+
+fetchMessages();
 
   function showAllPhotos() {
     var allPhotoGallery = document.getElementById('allPhotos')
@@ -137,3 +149,4 @@ function createMessageElement(name, message, yesNoValue, messageId) {
   
 
 console.log('run without bug')
+
