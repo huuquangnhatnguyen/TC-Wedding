@@ -86,7 +86,6 @@ function fetchMessages() {
   database.ref('wishes').on('value', function (snapshot) {
     var messagesContainer = document.getElementById('wishes-ans-box');
     messagesContainer.innerHTML = ''; // Clear the existing messages
-
     // Display existing messages
     snapshot.forEach(function (childSnapshot) {
       var messageData = childSnapshot.val();
@@ -102,7 +101,8 @@ function createMessageElement(name, message, yesNoValue, messageId) {
   
   var messageElement = document.createElement('div');
   messageElement.className = 'wish-ans grid-box font-don-gian';
-  messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(\'' + messageId + '\')">X</button>';
+  messageElement.innerHTML = 
+  '<div>'+'<div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(\'' + messageId + '\')">X</button>';
 
   return messageElement;
 }

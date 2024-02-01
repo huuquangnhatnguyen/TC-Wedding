@@ -644,11 +644,6 @@ footer .thankyou{
     font-size: 25px;
 }
 
-/*testing*/
-
-
-  
-  /* Additional styling as needed */
 .happy-box{
     margin: 0 auto;
     max-width: 500px;
@@ -681,7 +676,7 @@ footer .thankyou{
     height: auto;
 }
   
-
+/* animation */
 .animate {
   animation-duration: 1s;
   animation-fill-mode: both;
