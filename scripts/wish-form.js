@@ -15,7 +15,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 // Get a reference to the database
-var database = firebase.database().ref('TC Wedding');
+var database = firebase.database();
 
 // Event listener for submission
 
@@ -46,7 +46,7 @@ function submissionMessage(event) {
 
 // Function to add a new message to Firebase
 function addMessageToFirebase(name, message, yesNoValue) {
-  database.push({
+  database.ref('TC Wedding').push({
     name: name,
     message: message,
     yesNoValue: yesNoValue
@@ -56,17 +56,24 @@ function addMessageToFirebase(name, message, yesNoValue) {
 
 // Fetch Message from Database
 function fetchMessages() {
-  database.on('value', function (snapshot) {
-    var messagesContainer = document.getElementById('wishes-ans-box');
+  console.log("i am here 4.1");
+  var wishRef = database.ref("TC wedding")
+  wishRef.once("value", function (snapshot) {
+    console.log("i am here 4");
+    var messagesContainer = document.getElementById('wish-container');
     messagesContainer.innerHTML = ''; // Clear the existing messages
 
     // Display existing messages
-    snapshot.forEach(function (childSnapshot) {
-      var messageData = childSnapshot.val();
-      var messageId = childSnapshot.key;
-      var messageElement = createMessageElement(messageData.name, messageData.message, messageData.yesNoValue, messageId);
-      messagesContainer.appendChild(messageElement);
-    });
+    snapshot.forEach(
+      function (childSnapshot) {
+        var messageData = childSnapshot.val();
+        var messageId = childSnapshot.key;
+        var messageElement = createMessageElement(
+          messageData.name, messageData.message, messageData.yesNoValue, messageId
+          );
+        messagesContainer.appendChild(messageElement);
+      });
+      console.log("i am here 5");
   });
 }
 
@@ -75,21 +82,19 @@ function createMessageElement(name, message, yesNoValue, messageId) {
   
   var messageElement = document.createElement('div');
   messageElement.className = 'wish-ans grid-box font-don-gian';
-  messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(\'' + messageId + '\')">X</button>';
-
+  messageElement.innerHTML = 
+  '<div>'+
+    '<div class="guestname">' + name + '</div>'+ 
+    '<div class="guest-message">' + message + '</div>'+
+  '</div>' + 
+  '<button onclick="deleteMessage(\'' + messageId + '\')">X</button>';
+  console.log("i am here 6");
   return messageElement;
 }
 
-function deleteMessage(messageId) {
-  database.ref('messages/' + messageId).remove(); // Remove from the database
 
-  // Remove the corresponding DOM element
-  var messageElement = document.getElementById(messageId);
-  if (messageElement) {
-    messageElement.remove();
-  }
-}
+window.addEventListener("DOMContentLoaded", (event) => {
+  fetchMessages();
+});
 
-fetchMessages();
-
-console.log('run without bug')
+console.log("i am here 7");

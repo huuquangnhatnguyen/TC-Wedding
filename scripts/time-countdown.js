@@ -2,7 +2,6 @@
 var element = document.getElementById('time-countdown');
 var dataTime = element.getAttribute('data-time');
 let countDownDate = (new Date(dataTime)).getTime();
-console.log(countDownDate);
 // Update the countdown every second
 const countdownInterval = setInterval(timer, 1000);
 
