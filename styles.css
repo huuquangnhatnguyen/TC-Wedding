@@ -574,12 +574,28 @@ textarea::placeholder{
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: rgba(132,87,49,0.9);
+    color: rgba(132,87,49,0.8);
     border: none;
     border-radius: 10px;
     background-color: rgba(238, 211, 189,0.7);
-
+    border-radius: 15px;
+    box-shadow: 0 3px rgba(132,87,49,0.8);
 }
+
+#wishes #send-btn:hover{
+    background-color:  rgba(241, 187, 142, 0.7);
+    color: white;
+    transition: ease-in-out;
+}
+
+#wishes #send-btn:active{
+    background-color: rgba(132,87,49,0.8);
+    color: white;
+    box-shadow: none;
+    transform: translateY(4px);
+    transition: ease-in-out;
+}
+
 
 /*Wishes answers*/
 
@@ -743,10 +759,6 @@ animation-delay: 4s;
 
 .animate.animate--slow {
   animation-duration: 3s;
-}
-
-.animate.animate--delay-1s{
-    animation-timeline: ;
 }
 
 /* Animations */

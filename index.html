@@ -12,7 +12,8 @@
         <!-- Dependencies CSS -->
         
         <!--App-->
-        <script defer src="./scripts/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script src="./scripts/wish-form.js"></script>
         <script defer src="./scripts/time-countdown.js"></script>
 
 
@@ -198,7 +199,7 @@
 
                 <h2 class="title font-cuong-dieu">Gửi Lời Chúc</h2>  
                 <!-- <div class="alert"><h5>Cảm ơn anh/chị/bạn!</h5></div> -->
-                <div class="wish-form font-don-gian">
+                <form class="wish-form font-don-gian" id="wish-form">
 
                   <div class="title">Đôi lời nhắn nhủ tới<br>Cô dâu và Chú rể</div>
 
@@ -213,17 +214,15 @@
                         <option class="font-don-gian" value="0" selected>CÓ</option>
                         <option class="font-don-gian" value="1">KHÔNG</option>
                     </select>
-                  </div>
+                  </div>    
 
                   <div class="wishes-input">
                     <label class="form-label" for="wishes">Lời Chúc</label>
                     <textarea class="long-ans form-items" id="form-message" rows="4" placeholder="Nhắn gửi đôi lời hạnh phúc đến Cam và Trân"></textarea>
                   </div>
 
-                <button id="send-btn" type="submit">
-                    <aside>Gửi</aside>
-                </button>
-                </div>
+                  <button id="send-btn" type="submit">Gửi</button>
+                </form>
                 
                 <div class="container">
                     <div class="wishes-ans-box" id="wish-ans-container">

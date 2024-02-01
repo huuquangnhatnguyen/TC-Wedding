@@ -1,15 +1,11 @@
-
 // Firebase Set up:
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBVz534wQmeoXn6SxBLWo4NlFaJeUBwpJM",
   authDomain: "tc-wedding-36a90.firebaseapp.com",
+  databaseURL: "https://tc-wedding-36a90-default-rtdb.firebaseio.com",
   projectId: "tc-wedding-36a90",
   storageBucket: "tc-wedding-36a90.appspot.com",
   messagingSenderId: "824076036510",
@@ -17,48 +13,50 @@ const firebaseConfig = {
   measurementId: "G-9Z7P0QKX2Z"
 };
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-
-
-
-
 // Get a reference to the database
-var database = firebase.database();
+var database = firebase.database().ref('TC Wedding');
 
 // Event listener for submission
-document.getElementById('messageForm').addEventListener('submit', function (event) {
-  event.preventDefault();
 
-  var name = document.getElementById('form-name').value;
-  var message = document.getElementById('RSVP').value;
-  var yesNoValue = document.getElementById('form-message').value;
-
-  if (name && message && yesNoValue) {
-    // Add the new message to Firebase
-    addMessageToFirebase(name, message, yesNoValue);
-
-    // Clear the form inputs
-    document.getElementById('form-name').value = '';
-    document.getElementById('RSVP').value = '';
-    document.getElementById('form-message').value = 'CÓ'; // Reset the select to 'Yes'
+window.addEventListener("DOMContentLoaded", (event) => {
+  const el=document.getElementById("wish-form");
+  if (el) {
+    el.addEventListener("submit", submissionMessage);
   }
 });
 
+function submissionMessage(event) {
+  event.preventDefault();
+  var name = document.getElementById('form-name').value;
+  var message = document.getElementById('form-message').value;
+  var yesNoValue = document.getElementById('RSVP').value;
+  console.log("i am here 1");
+  if (name && message && yesNoValue) {
+    // Add the new message to Firebase
+    addMessageToFirebase(name, message, yesNoValue);
+    console.log("i am here 2");
+    // Clear the form inputs
+    document.getElementById('form-name').value = '';
+    document.getElementById('RSVP').value = '';
+    document.getElementById('form-message').value = '';
+  }
+  console.log('succeeded')
+};
+
 // Function to add a new message to Firebase
 function addMessageToFirebase(name, message, yesNoValue) {
-  database.ref('wishes').push({
+  database.push({
     name: name,
     message: message,
     yesNoValue: yesNoValue
   });
+  console.log("i am here 3");
 }
 
 // Fetch Message from Database
 function fetchMessages() {
-  database.ref('wishes').on('value', function (snapshot) {
+  database.on('value', function (snapshot) {
     var messagesContainer = document.getElementById('wishes-ans-box');
     messagesContainer.innerHTML = ''; // Clear the existing messages
 
@@ -93,8 +91,5 @@ function deleteMessage(messageId) {
 }
 
 fetchMessages();
-
-
-  
 
 console.log('run without bug')
