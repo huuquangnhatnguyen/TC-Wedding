@@ -1,5 +1,3 @@
-
-
 var element = document.getElementById('time-countdown');
 var dataTime = element.getAttribute('data-time');
 let countDownDate = (new Date(dataTime)).getTime();
@@ -29,97 +27,85 @@ function timer () {
         }
 };
 
-// Load messages from local storage on page load
-window.onload = function () {
-    loadMessages();
-  };
 
-function submitMessage() {
-    // Get values from the form
-    var name = document.getElementById('form-name').value;
-    var message = document.getElementById('form-message').value;
-    // Create a new message element
-    var messageElement = document.createElement('div');
-    messageElement.className = 'wish-ans grid-box font-don-gian';
-    messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(this)">X</button>';
+// Firebase Set up:
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Append the message to the messages container
-    var messagesContainer = document.getElementById('wish-ans-container');
-    messagesContainer.appendChild(messageElement);
-  
-    // Save the message to local storage
-    saveMessage(name, message);
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBVz534wQmeoXn6SxBLWo4NlFaJeUBwpJM",
+  authDomain: "tc-wedding-36a90.firebaseapp.com",
+  projectId: "tc-wedding-36a90",
+  storageBucket: "tc-wedding-36a90.appspot.com",
+  messagingSenderId: "824076036510",
+  appId: "1:824076036510:web:23c1effad8dfecfe528e8f",
+  measurementId: "G-9Z7P0QKX2Z"
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database
+var database = firebase.database();
+
+// Event listener for submission
+document.getElementById('messageForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var name = document.getElementById('form-name').value;
+  var message = document.getElementById('RSVP').value;
+  var yesNoValue = document.getElementById('form-message').value;
+
+  if (name && message && yesNoValue) {
+    // Add the new message to Firebase
+    addMessageToFirebase(name, message, yesNoValue);
 
     // Clear the form inputs
     document.getElementById('form-name').value = '';
-    document.getElementById('form-message').value = '';
+    document.getElementById('RSVP').value = '';
+    document.getElementById('form-message').value = 'CÓ'; // Reset the select to 'Yes'
+  }
+});
+
+// Function to add a new message to Firebase
+function addMessageToFirebase(name, message, yesNoValue) {
+  database.ref('wishes').push({
+    name: name,
+    message: message,
+    yesNoValue: yesNoValue
+  });
 }
 
+// Fetch Message from Database
+function fetchMessages() {
+  database.ref('wishes').on('value', function (snapshot) {
+    var messagesContainer = document.getElementById('wishes-ans-box');
+    messagesContainer.innerHTML = ''; // Clear the existing messages
 
-function saveMessage(name, message) {
-    // Load existing messages from local storage
-    var existingMessages = JSON.parse(localStorage.getItem('wish-ans-container')) || [];
-  
-    // Add the new message
-    existingMessages.push({ name: name, message: message });
-  
-    // Save the updated messages back to local storage
-    localStorage.setItem('wishes', JSON.stringify(existingMessages));
-  }
-
-  function loadMessages() {
-    // Load existing messages from local storage
-    var existingMessages = JSON.parse(localStorage.getItem('wishes')) || [];
-  
     // Display existing messages
-    var messagesContainer = document.getElementById('wish-ans-container');
-    existingMessages.forEach(function (msg) {
-      var messageElement = document.createElement('div');
-      messageElement.className = 'wish-ans grid-box font-don-gian';
-      messageElement.innerHTML = '<div class="wish-data">'+'<div class="guestname">' + msg.name + '</div>'+ '<div class="guest-message">' + msg.message + '</div>' + '</div>' + '<button class="mes-remove-btn" onclick="deleteMessage(this)">X</button>';
+    snapshot.forEach(function (childSnapshot) {
+      var messageData = childSnapshot.val();
+      var messageId = childSnapshot.key;
+      var messageElement = createMessageElement(messageData.name, messageData.message, messageData.yesNoValue, messageId);
       messagesContainer.appendChild(messageElement);
     });
-  }
-
-  const adminToken = "Solss1302"
-
-  function deleteMessage(button) {
-    
-    var userToken = prompt('Enter your token:'); // Replace with a secure way to get the token from the authenticated user
-    if (userToken !== adminToken) {
-        alert('Unauthorized. You do not have permission to delete messages.');
-    return;
-  }
-    // Get the parent element (message) of the clicked delete button
-    var messageElement = button.parentNode;
-    console.log(messageElement.textContent.trim())
-  
-    // Load existing messages from local storage
-    var existingMessages = JSON.parse(localStorage.getItem('wishes')) || [];
-    console.log('Existing:', existingMessages)
-  
-    // Find and remove the deleted message from the array
-    var indexToDelete = -1;
-    existingMessages.forEach(function (msg, index) {
-    if (msg.name + msg.message+'X' === messageElement.textContent.trim()) {
-      indexToDelete = index;
-    }
   });
+}
 
-  console.log('Index to Delete:', indexToDelete);
+// Function to create a message element
+function createMessageElement(name, message, yesNoValue, messageId) {
   
-    // Save the updated messages back to local storage
-    if (indexToDelete !== -1) {
-        existingMessages.splice(indexToDelete, 1);
-    
-        // Save the updated messages back to local storage
-        localStorage.setItem('wishes', JSON.stringify(existingMessages));
-        console.log('After deleting:', existingMessages)
-      }
+  var messageElement = document.createElement('div');
+  messageElement.className = 'wish-ans grid-box font-don-gian';
+  messageElement.innerHTML = '<div>'+'</div><div class="guestname">' + name + '</div>'+ '<div class="guest-message">' + message + '</div>'+'</div>' + '<button onclick="deleteMessage(this)">X</button>';
 
-    // Remove the message from the DOM
-    messageElement.remove();
-  }
+  return messageElement;
+}
 
   function showAllPhotos() {
     var allPhotoGallery = document.getElementById('allPhotos')

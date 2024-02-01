@@ -13,6 +13,8 @@
         
         <!--App-->
         <script defer src="./scripts/app.js"></script>
+
+
     </head>
     <body>
         <header>
@@ -48,18 +50,17 @@
             <!--Bridge Groom-->
             <section class="containers" id="bridge-groom">
                 <h2 class="title font-cuong-dieu" style="word-spacing: 30px; line-height: 1.25;">Cô Dâu<br>&<br>Chú Rể</h2>
-                <table class="br-gr-table">
-                        <tr>
-                            <td>
-                                <img id="bridge-img" src="images/pic3.jpg" alt="Bridge">
-                                <h3 class="font-don-gian">Bảo Trân</h3>
-                            </td>
-                            <td>
-                                <img id="groom-img" src="images/pic2.jpg" alt="Groom">
-                                <h3 class="font-don-gian">Văn Cam</h3>
-                            </td>
+                <div class="grid-container">
+                    <div class="grid-col">
+                        <img id="bridge-img" src="images\portrait\portrait_2.jpg" alt="Bridge">
+                        <h3 class="font-don-gian">Bảo Trân</h3>
+                    </div>
+                    <div class="grid-col">
+                        <img id="groom-img" src="images\portrait\portrait_17.jpg" alt="Groom">
+                        <h3 class="font-don-gian">Văn Cam</h3>
+                    </div>
+                </div>
 
-                </table>               
             </section>
 
             <!-- Wave Separator -->
@@ -196,7 +197,9 @@
                 <h2 class="title font-cuong-dieu">Gửi Lời Chúc</h2>  
                 
                 <div class="wish-form font-don-gian">
+
                   <div class="title">Đôi lời nhắn nhủ tới<br>Cô dâu và Chú rể</div>
+
                   <div class="name-input">
                     <label class="form-label" for="form-name">Tên của anh/ chị/ bạn là:</label>
                     <input type="text" class="form-input form-items" id="form-name" placeholder="Mình có thể gọi bạn/anh/chị là gì nhỉ?">
@@ -215,7 +218,7 @@
                     <textarea class="long-ans form-items" id="form-message" rows="4" placeholder="Nhắn gửi đôi lời hạnh phúc đến Cam và Trân"></textarea>
                   </div>
 
-                <button id="send-btn" onclick="submitMessage()">
+                <button id="send-btn" type="submit">
                     <aside>Gửi</aside>
                 </button>
                 </div>
@@ -239,7 +242,7 @@
             </p>
             <div class="happy-box">
                 <div class="title">
-                    <h3 class="font-don-gian" style="margin: 5px auto; ">Hộp Mừng Cưới<br></h3>
+                    <h4 class="font-don-gian" style="margin: 5px auto; ">Hộp Mừng Cưới<br></h4>
                     <h5 style="margin: 5px auto;">Thật vui vì được gặp và đón tiếp các bạn trong một dịp đặc biệt như đám cưới của chúng mình.</h5>
                 </div>
                 <div class="qr-code">

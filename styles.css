@@ -56,6 +56,8 @@ p{
     line-height: 1.5;
     white-space: no-wrap;
     text-overflow: ellipsis;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 h1{
@@ -261,7 +263,7 @@ nav{
 /* Bridge and Groom Section*/ 
 
 #bridge-groom #bridge-img{
-    border-radius: 10%;
+    border-radius: 20px;
     max-width: 100%;
     height: auto;
     margin: 20px auto;
@@ -272,12 +274,21 @@ nav{
 }
 
 #bridge-groom #groom-img{
-    border-radius: 10%;
+    border-radius: 20px;
     max-width: 100%;
     height: auto;
     margin: 20px auto;
 }
 
+#bridge-groom .grid-container{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    justify-content: space-around;
+    justify-items: center;
+    column-gap: 20px;
+
+}
 /* Countdown Section */
 
 #time{
