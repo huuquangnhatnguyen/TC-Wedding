@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 
-import {getDatabase, ref, child, set, get} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import {getDatabase, ref, child, set, get, push} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
@@ -44,12 +44,15 @@ function submissionMessage(event) {
     document.getElementById('RSVP').value = '';
     document.getElementById('form-message').value = '';
   }
+  fetchMessages();
   console.log('succeeded submit')
 };
 
 // Function to add a new message to Firebase
 function addMessageToFirebase(name, message, yesNoValue) {
-  set(ref(database, 'TC Wedding/'), {
+  var postListRef = ref(database, 'TC Wedding');
+  var newPostRef = push(postListRef);
+  set(newPostRef, {
     name: name,
     message: message,
     yesNoValue: yesNoValue
