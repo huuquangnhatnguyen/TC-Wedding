@@ -12,9 +12,9 @@
         <!-- Dependencies CSS -->
         
         <!--App-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js"></script>
-        <script defer src="./scripts/wish-form.js"></script>
+        
+        <script type="module" src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js"></script>
+        <script type="module" src="./scripts/wish-form.js"></script>
         <script defer src="./scripts/time-countdown.js"></script>
         <script defer src="./scripts/app.js"></script>
 
@@ -25,7 +25,6 @@
             <nav>
                 <div class="nav-bar">
                         <a class="nav-link font-don-gian" href="#home">Home</a>
-                        </a>
                         <a class="nav-link font-don-gian" href="#bridge-groom">Cô dâu<br>Chú Rể</a>
                         <a class="nav-link font-don-gian" href="#time">Thời gian Địa điểm</a>
                         <a class="nav-link font-don-gian" href="#photo-gallery">Photo Gallery</a>
@@ -200,7 +199,7 @@
             <section class=" containers" id="wishes">
 
                 <h2 class="title font-cuong-dieu">Gửi Lời Chúc</h2>  
-                <!-- <div class="alert"><h5>Cảm ơn anh/chị/bạn!</h5></div> -->
+
                 <form class="wish-form font-don-gian" id="wish-form">
 
                   <div class="title">Đôi lời nhắn nhủ tới<br>Cô dâu và Chú rể</div>
@@ -237,7 +236,7 @@
     <hr class="divider">
 
     <footer>
-        <div>
+        <div class="containers">
             <h2 class="title font-cuong-dieu">Lời cảm ơn</h2>
             <img class="ty-pic" src="images/pic4.jpg" alt="happy">
             <p class="thankyou font-don-gian">
