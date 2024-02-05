@@ -21,7 +21,7 @@ body{
     width: 100%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background-color: rgba(255,235,205,.6);
+    background-color: rgba(240,230,224, .94);
 }
 
 /* Typography Styles*/ 
@@ -158,14 +158,14 @@ h6{
 /* Structural Styles*/
 
 .containers{
-    margin:     0 auto;
+    margin: 0 auto;
     max-width: 1160px;
-    padding: 0 20px;
+    padding: 20px 20px;
     text-align: center;
     position:relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Shadow effect */
     transition: background-color 0.3s ease-in-out;
-    border:rgba(237,207,187) dashed 5px;
+    border:#754b2f dashed 2px;
     border-radius: 5px;
 }
 
@@ -185,11 +185,11 @@ body::-webkit-scrollbar {
 /* Navigation bar */
 nav{
     width: 100%;
-    background-color: rgba(204, 188, 163, 0.8);
+    background-color: rgba(243, 219, 178, 0.8);
     position: fixed;
     bottom: 0px;
     border-radius: 10px;
-    padding: 0px auto;
+    padding: 0px auto;  
     z-index: 1;
 }
 
@@ -643,7 +643,7 @@ textarea::placeholder{
 
 .wishes-ans-box .wish-ans .guest-message{
     text-align: left;
-    padding-left: 10px;
+    padding-left:  px;
     padding-top: 5px;
 }
 
