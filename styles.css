@@ -421,6 +421,15 @@ td{
     margin-top: 20px;
   }
 
+  @media (min-width: 720px){
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(150px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+      }
+  }
+
 .photo-col{
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(150px,1fr));
@@ -428,16 +437,19 @@ td{
     align-items: center;
 }
 
-.see-more-btn{
-    margin: 10px auto; 
-    width: 100%;
+.see-more-btn{    
+    margin: 20px auto;
+    display: inline-block;
+    width: 90%;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: rgba(132,87,49,0.9);
+    color: rgba(132,87,49,0.8);
     border: none;
     border-radius: 10px;
-    background-color: hsla(25, 35%, 72%, 0.7);  
+    background-color: rgba(238, 211, 189,0.7);
+    border-radius: 15px;
+    box-shadow: 0 3px rgba(132,87,49,0.8);
   }
 
 .photo {
@@ -711,7 +723,7 @@ footer .thankyou{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
     transition: background-color 0.3s ease-in-out;
     border:hsla(25, 35%, 72%, 0.7) dashed 3px;
-    background-color: rgba(237,222,187,.6)  ;
+    background-color: rgba(240,230,224, .94);  ;
 }
 
 .grid-container{
