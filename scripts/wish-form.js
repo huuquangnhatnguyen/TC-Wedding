@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 
-import {getDatabase, ref, child, set, get, push} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import {getDatabase, ref, child, set, get, push, onValue, query, orderByChild, update, increment} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
@@ -29,41 +29,52 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-function submissionMessage(event) {
+async function submissionMessage(event) {
   event.preventDefault();
   var name = document.getElementById('form-name').value;
   var message = document.getElementById('form-message').value;
   var yesNoValue = document.getElementById('RSVP').value;
-  console.log("i am here 1");
   if (name && message && yesNoValue) {
+    try {
+    // Get the current wish count
+    const snapshot = await get(ref(database, 'wish-count/count'));
+    const wishCount = snapshot.val();
+    
+    // Decrement the wish count by 1
+    await update(ref(database, 'wish-count'), { count: wishCount - 1 });
+
     // Add the new message to Firebase
-    addMessageToFirebase(name, message, yesNoValue);
-    console.log("i am here 2");
+    await addMessageToFirebase(name, message, yesNoValue, wishCount);
+
     // Clear the form inputs
     document.getElementById('form-name').value = '';
     document.getElementById('RSVP').value = '';
     document.getElementById('form-message').value = '';
-  }
+    }catch (error){
+      console.error('Error submitting form:', error);
+    }}
   fetchMessages();
   console.log('succeeded submit')
 };
 
+
 // Function to add a new message to Firebase
-function addMessageToFirebase(name, message, yesNoValue) {
+function addMessageToFirebase(name, message, yesNoValue, wishNo) {
   var postListRef = ref(database, 'TC Wedding');
   var newPostRef = push(postListRef);
   set(newPostRef, {
     name: name,
     message: message,
-    yesNoValue: yesNoValue
-  })
+    yesNoValue: yesNoValue,
+    wishNo: wishNo
+  })  
+  
 }
 
 // Fetch Message from Database
 function fetchMessages() {
-  console.log("i am here 4.1");
-  const wishRef = ref(database);
-  get(child(wishRef, 'TC Wedding/')). then((snapshot) => {
+  const wishRef = ref(database, 'TC Wedding/');
+  onValue(query(wishRef, orderByChild('wishNo')), (snapshot) => {
   var messagesContainer = document.getElementById('wish-container');
   messagesContainer.innerHTML = ''; // Clear the existing messages
   // Display existing messages
@@ -76,7 +87,8 @@ function fetchMessages() {
         );
       messagesContainer.appendChild(messageElement);
     }
-    )}
+    )
+  }
   )
 }
 
@@ -91,7 +103,6 @@ function createMessageElement(name, message, yesNoValue, messageId) {
     '<div class="guest-name">' + name + '</div>'+ 
     '<div class="guest-message">' + message + '</div>'+
   '</div>';
-  console.log("i am here 6");
   return messageElement;
 }
 
@@ -100,4 +111,3 @@ window.addEventListener("DOMContentLoaded", (event) => {
   fetchMessages();
 });
 
-console.log("i am here 7");
