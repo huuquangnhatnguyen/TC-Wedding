@@ -19,9 +19,9 @@ function showAllPhotos() {
     // Display the modal
     document.getElementById('myModal').style.display = 'block';
 
-  }
+}
   
-  function closeModal() {
+function closeModal() {
     // Close the modal
     document.getElementById('myModal').style.display = 'none';
-  }
+}
