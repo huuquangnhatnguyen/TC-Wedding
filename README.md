@@ -11,4 +11,4 @@ https://github.com/huuquangnhatnguyen/TC-Wedding/assets/91711623/b5fe9c9a-68d4-4
 
 https://www.youtube.com/watch?v=G3Cytlicv8Y
 
-blob:https://gep.innovation.com.vn/94ff1df3-1a38-41af-bd01-e4f96d9a67f3
+https://gep.innovation.com.vn/94ff1df3-1a38-41af-bd01-e4f96d9a67f3](https://gep.innovation.com.vn/api/storage/files/image/69ada5ca-863e-4b80-a3c9-c36e012a78c5_demoqlcongty.jpg)
